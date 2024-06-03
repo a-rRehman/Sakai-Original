@@ -134,8 +134,16 @@ import { MyFormComponent } from './my-form/my-form.component';
             {
                 path: 'myForm',
                 data: { breadcrumb: 'Menu' },
-                component: MyFormComponent,
+                loadChildren: () =>
+                    import('./my-form/my-form.module').then(
+                        (m) => m.MyFormModule
+                    ),
             },
+            // {
+            //     path: 'myForm',
+            //     data: { breadcrumb: 'Menu' },
+            //     component: MyFormComponent,
+            // },
 
             { path: '**', redirectTo: '/notfound' },
         ]),

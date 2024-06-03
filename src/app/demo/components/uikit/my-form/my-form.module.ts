@@ -4,17 +4,16 @@ import { MyFormComponent } from './my-form.component';
 import { MyFormRoutingModule } from './my-form-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     imports: [
         CommonModule,
         MyFormRoutingModule,
         DropdownModule,
         CheckboxModule,
-        FormBuilder,
-        FormGroup,
-        Validators,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     declarations: [MyFormComponent],
 })
-export class MiscDemoModule {}
+export class MyFormModule {}
