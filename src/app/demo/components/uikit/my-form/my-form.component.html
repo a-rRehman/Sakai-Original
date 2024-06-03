@@ -1,1 +1,554 @@
-<p>my-form works!</p>
+<div
+    class="delivery-order-form"
+    style="
+        border: 1px solid rgba(0, 0, 0, 0.075);
+        border-radius: 15px;
+        padding-left: 15px;
+    "
+>
+    <h1>New Delivery Order</h1>
+    <form [formGroup]="deliveryOrderForm" (ngSubmit)="onSubmit()">
+        <div style="background-color: rgba(128, 128, 128, 0.388)">
+            <div><h2>Office Use</h2></div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="client">Client</label>
+                <p-dropdown
+                    id="client"
+                    formControlName="client"
+                    [options]="clients"
+                    optionLabel="name"
+                    placeholder="Select a client"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+            <div class="form-group">
+                <label for="user">User</label>
+                <p-dropdown
+                    id="user"
+                    formControlName="user"
+                    [options]="users"
+                    optionLabel="name"
+                    placeholder="Select a user"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+                id="firstName"
+                type="text"
+                pInputText
+                formControlName="firstName"
+                placeholder="First Name"
+            />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+                id="lastName"
+                type="text"
+                pInputText
+                formControlName="lastName"
+                placeholder="Last Name"
+            />
+        </div>
+        <div style="background-color: rgba(128, 128, 128, 0.388)">
+            <div><h2>Pick UP</h2></div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="addressBook">Address Book</label>
+                <p-dropdown
+                    id="addressBook"
+                    formControlName="addressBook"
+                    [options]="addressBook"
+                    optionLabel="name"
+                    placeholder="Select a Address"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+            <div class="form-group">
+                <label for="addressBook1">Address Book</label>
+                <p-dropdown
+                    id="addressBook1"
+                    formControlName="addressBook1"
+                    [options]="addressBook1"
+                    optionLabel="name"
+                    placeholder="Select a Address"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="bookEntry">Book Entry</label>
+                <input
+                    id="bookEntry"
+                    type="text"
+                    pInputText
+                    formControlName="bookEntry"
+                    placeholder="Book Entry"
+                />
+            </div>
+            <div class="form-group">
+                <label for="bookEntry1">Book Entry</label>
+                <input
+                    id="bookEntry1"
+                    type="text"
+                    pInputText
+                    formControlName="bookEntry1"
+                    placeholder="Book Entry"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="firstName1">First Name</label>
+                <input
+                    id="firstName1"
+                    type="text"
+                    pInputText
+                    formControlName="firstName1"
+                    placeholder="First Name"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="firstName2">First Name</label>
+                <input
+                    id="firstName2"
+                    type="text"
+                    pInputText
+                    formControlName="firstName2"
+                    placeholder="First Name"
+                />
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="lastName1">Last Name</label>
+                <input
+                    id="lastName1"
+                    type="text"
+                    pInputText
+                    formControlName="lastName1"
+                    placeholder="Last Name"
+                />
+            </div>
+            <div class="form-group">
+                <label for="lastName2">Last Name</label>
+                <input
+                    id="lastName2"
+                    type="text"
+                    pInputText
+                    formControlName="lastName2"
+                    placeholder="Last Name"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input
+                    id="companyName"
+                    type="text"
+                    pInputText
+                    formControlName="companyName"
+                    placeholder="Company Name"
+                />
+            </div>
+            <div class="form-group">
+                <label for="companyName1">Company Name</label>
+                <input
+                    id="companyName1"
+                    type="text"
+                    pInputText
+                    formControlName="companyName1"
+                    placeholder="Company Name"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input
+                    id="city"
+                    type="text"
+                    pInputText
+                    formControlName="city"
+                    placeholder="City"
+                />
+            </div>
+            <div class="form-group">
+                <label for="city1">City</label>
+                <input
+                    id="city1"
+                    type="text"
+                    pInputText
+                    formControlName="city1"
+                    placeholder="City"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="state">State</label>
+                <input
+                    id="state"
+                    type="text"
+                    pInputText
+                    formControlName="state"
+                    placeholder="State"
+                />
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input
+                    id="state1"
+                    type="text"
+                    pInputText
+                    formControlName="state1"
+                    placeholder="State"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="zip">Zip</label>
+                <input
+                    id="zip"
+                    type="text"
+                    pInputText
+                    formControlName="zip"
+                    placeholder="Zip"
+                />
+            </div>
+            <div class="form-group">
+                <label for="zip1">Zip</label>
+                <input
+                    id="zip1"
+                    type="text"
+                    pInputText
+                    formControlName="zip1"
+                    placeholder="Zip"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                    id="phone"
+                    type="text"
+                    pInputText
+                    formControlName="phone"
+                    placeholder="Phone"
+                />
+            </div>
+            <div class="form-group">
+                <label for="phone1">Phone</label>
+                <input
+                    id="phone1"
+                    type="text"
+                    pInputText
+                    formControlName="phone1"
+                    placeholder="Phone"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="extension">Extension</label>
+                <input
+                    id="extension"
+                    type="text"
+                    pInputText
+                    formControlName="extension"
+                    placeholder="Extension"
+                />
+            </div>
+            <div class="form-group">
+                <label for="extension1">Extension</label>
+                <input
+                    id="extension1"
+                    type="text"
+                    pInputText
+                    formControlName="extension1"
+                    placeholder="Extension"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    id="email"
+                    type="text"
+                    pInputText
+                    formControlName="email"
+                    placeholder="Email"
+                />
+            </div>
+            <div class="form-group">
+                <label for="email1">Email</label>
+                <input
+                    id="email1"
+                    type="text"
+                    pInputText
+                    formControlName="email1"
+                    placeholder="Email"
+                />
+            </div>
+        </div>
+        <div style="background-color: rgba(128, 128, 128, 0.388)">
+            <div><h2>Service Details</h2></div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="serviceLevel">Service Level</label>
+                <p-dropdown
+                    id="serviceLevel"
+                    formControlName="serviceLevel"
+                    [options]="serviceLevels"
+                    optionLabel="name"
+                    placeholder="Select Service Level"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input
+                    id="quantity"
+                    type="number"
+                    pInputText
+                    formControlName="quantity"
+                    value="1"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="desiredDeliveryDate">Desired Delivery Date</label>
+                <input
+                    id="desiredDeliveryDate"
+                    type="date"
+                    pInputText
+                    formControlName="desiredDeliveryDate"
+                />
+            </div>
+            <div class="form-group">
+                <label for="billingReference">Billing Reference</label>
+                <input
+                    id="billingReference"
+                    type="text"
+                    pInputText
+                    formControlName="billingReference"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+                id="description"
+                pInputTextarea
+                formControlName="description"
+                placeholder="Description"
+                style="width: 100%"
+            ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="specialInstructions">Special Instructions</label>
+            <textarea
+                id="specialInstructions"
+                pInputTextarea
+                formControlName="specialInstructions"
+                placeholder="Special Instructions"
+                style="width: 100%"
+            ></textarea>
+        </div>
+        <div style="margin-top: 30px; margin-bottom: 30px">
+            <div class="flex-container">
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="leaveWithoutSignature"
+                        binary="true"
+                        label="Leave Without Signature"
+                    ></p-checkbox>
+                </div>
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="deliveryOver25Lbs"
+                        binary="true"
+                        label="Delivery Over 25 Lbs"
+                    ></p-checkbox>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="returnService"
+                        binary="true"
+                        label="Return Service"
+                    ></p-checkbox>
+                </div>
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="notaryService"
+                        binary="true"
+                        label="Notary Service"
+                    ></p-checkbox>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="residenceOrMedicalCenter"
+                        binary="true"
+                        label="Residence or Medical Center"
+                    ></p-checkbox>
+                </div>
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="nightWeekendHoliday"
+                        binary="true"
+                        label="Night/Weekend/Holiday"
+                    ></p-checkbox>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="processNotification"
+                        binary="true"
+                        label="Process Notification"
+                    ></p-checkbox>
+                </div>
+                <div class="form-group">
+                    <p-checkbox
+                        formControlName="deliveryNotification"
+                        binary="true"
+                        label="Delivery Notification"
+                    ></p-checkbox>
+                </div>
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="calculatedMiles">Calculated Miles</label>
+                <input
+                    id="calculatedMiles"
+                    type="number"
+                    pInputText
+                    formControlName="calculatedMiles"
+                />
+            </div>
+            <div class="form-group">
+                <label for="finalMiles">Final Miles</label>
+                <input
+                    id="finalMiles"
+                    type="number"
+                    pInputText
+                    formControlName="finalMiles"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="calculatedServiceArea"
+                    >Calculated Service Area</label
+                >
+                <p-dropdown
+                    id="calculatedServiceArea"
+                    formControlName="calculatedServiceArea"
+                    [options]="serviceAreas"
+                    optionLabel="name"
+                    placeholder="Select a Service Area"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+            <div class="form-group">
+                <label for="overrideServiceArea">Override Service Area</label>
+                <p-dropdown
+                    id="overrideServiceArea"
+                    formControlName="overrideServiceArea"
+                    [options]="serviceAreas"
+                    optionLabel="name"
+                    placeholder="Select a Service Area"
+                    class="p-fluid"
+                ></p-dropdown>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="estimatedCharges">Estimated Charges</label>
+                <input
+                    id="estimatedCharges"
+                    type="number"
+                    pInputText
+                    formControlName="estimatedCharges"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="overrideCharges">Override Charges</label>
+                <input
+                    id="overrideCharges"
+                    type="text"
+                    pInputText
+                    formControlName="overrideCharges"
+                />
+            </div>
+        </div>
+        <div class="flex-container">
+            <div class="form-group">
+                <label for="total">Total</label>
+                <input
+                    id="total"
+                    type="text"
+                    pInputText
+                    formControlName="total"
+                    value="$0.00"
+                    [disabled]="true"
+                />
+            </div>
+        </div>
+        <div
+            class="flex-container"
+            style="margin-top: 15px; margin-bottom: 15px"
+        >
+            <div class="form-group">
+                <p-checkbox
+                    id="overrideCalculations"
+                    formControlName="overrideCalculations"
+                    binary="true"
+                    label="Override Calculations"
+                ></p-checkbox>
+            </div>
+            <div class="form-group">
+                <p-checkbox
+                    id="manualChargeEntry"
+                    formControlName="manualChargeEntry"
+                    binary="true"
+                    label="Manual Charge Entry"
+                ></p-checkbox>
+            </div>
+        </div>
+
+        <!-- -------------------------------------------------------------- -->
+        <div class="form-group">
+            <button
+                pButton
+                type="submit"
+                label="Submit"
+                [disabled]="deliveryOrderForm.invalid"
+            ></button>
+        </div>
+    </form>
+</div>
