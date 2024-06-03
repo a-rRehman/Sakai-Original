@@ -4,5 +4,6 @@ import { UIkitRoutingModule } from './uikit-routing.module';
 
 @NgModule({
     imports: [CommonModule, UIkitRoutingModule],
+    declarations: [],
 })
 export class UIkitModule {}

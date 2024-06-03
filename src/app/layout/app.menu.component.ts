@@ -32,6 +32,11 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/uikit/myForm'],
                     },
                     {
+                        label: 'Tables',
+                        icon: 'pi pi-fw pi-bookmark',
+                        routerLink: ['/uikit/treeTable'],
+                    },
+                    {
                         label: 'Form Layout',
                         icon: 'pi pi-fw pi-id-card',
                         routerLink: ['/uikit/formlayout'],

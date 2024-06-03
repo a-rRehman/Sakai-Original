@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MyFormComponent } from './my-form/my-form.component';
 
 @NgModule({
     imports: [
@@ -139,11 +138,14 @@ import { MyFormComponent } from './my-form/my-form.component';
                         (m) => m.MyFormModule
                     ),
             },
-            // {
-            //     path: 'myForm',
-            //     data: { breadcrumb: 'Menu' },
-            //     component: MyFormComponent,
-            // },
+            {
+                path: 'treeTable',
+                data: { breadcrumb: 'Menu' },
+                loadChildren: () =>
+                    import('./tree-table/tree-table.module').then(
+                        (m) => m.TreeTableModule
+                    ),
+            },
 
             { path: '**', redirectTo: '/notfound' },
         ]),
