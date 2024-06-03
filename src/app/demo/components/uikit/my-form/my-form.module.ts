@@ -5,6 +5,8 @@ import { MyFormRoutingModule } from './my-form-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 @NgModule({
     imports: [
         CommonModule,
@@ -13,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         CheckboxModule,
         FormsModule,
         ReactiveFormsModule,
+        InputTextModule,
+        ButtonModule,
     ],
     declarations: [MyFormComponent],
 })
