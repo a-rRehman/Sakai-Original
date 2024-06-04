@@ -1,15 +1,16 @@
 <div
     class="delivery-order-form"
-    style="
-        border: 1px solid rgba(0, 0, 0, 0.075);
-        border-radius: 15px;
-        padding-left: 15px;
-    "
+    style="border: 1px solid rgba(0, 0, 0, 0.075); border-radius: 15px"
 >
-    <h1>New Delivery Order</h1>
+    <div>
+        <span class="block text-500 font-bold pl-3 mt-3 mb-3"
+            >New Delivery Order</span
+        >
+    </div>
+
     <form [formGroup]="deliveryOrderForm" (ngSubmit)="onSubmit()">
         <div style="background-color: rgba(128, 128, 128, 0.388)">
-            <div><h2>Office Use</h2></div>
+            <div><h4 class="pl-3">Office Use</h4></div>
         </div>
         <div class="flex-container">
             <div class="form-group">
@@ -56,7 +57,7 @@
             />
         </div>
         <div style="background-color: rgba(128, 128, 128, 0.388)">
-            <div><h2>Pick UP</h2></div>
+            <div><h4 class="pl-3">Pick UP</h4></div>
         </div>
         <div class="flex-container">
             <div class="form-group">
@@ -305,7 +306,7 @@
             </div>
         </div>
         <div style="background-color: rgba(128, 128, 128, 0.388)">
-            <div><h2>Service Details</h2></div>
+            <div><h4 class="pl-3">Service Details</h4></div>
         </div>
         <div class="flex-container">
             <div class="form-group">

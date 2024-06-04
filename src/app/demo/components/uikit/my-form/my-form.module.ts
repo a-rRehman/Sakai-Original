@@ -7,6 +7,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 @NgModule({
     imports: [
         CommonModule,
@@ -17,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
         ReactiveFormsModule,
         InputTextModule,
         ButtonModule,
+        InputTextareaModule,
     ],
     declarations: [MyFormComponent],
 })
