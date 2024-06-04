@@ -146,6 +146,14 @@ import { RouterModule } from '@angular/router';
                         (m) => m.TreeTablemodule
                     ),
             },
+            {
+                path: 'mrates',
+                data: { breadcrumb: 'Menu' },
+                loadChildren: () =>
+                    import('./mrates/mrates.module').then(
+                        (m) => m.MratesModule
+                    ),
+            },
 
             { path: '**', redirectTo: '/notfound' },
         ]),
