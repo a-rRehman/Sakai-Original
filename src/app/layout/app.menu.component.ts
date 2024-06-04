@@ -24,19 +24,19 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             {
-                label: 'ORDER MANAGEMENT',
+                label: 'Order Managment',
                 items: [
                     {
-                        label: 'Submenu 1',
+                        label: 'Orders',
                         icon: 'pi pi-fw pi-bookmark',
                         items: [
                             {
-                                label: 'Submenu 1.1',
+                                label: 'Manage Orders',
                                 icon: 'pi pi-fw pi-bookmark',
                                 routerLink: ['/uikit/myForm'],
                             },
                             {
-                                label: 'Submenu 1.2',
+                                label: 'Browse Orders',
                                 icon: 'pi pi-fw pi-bookmark',
                                 routerLink: ['/uikit/treeTable'],
                             },
