@@ -24,10 +24,10 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             {
-                label: 'Order Managment',
+                label: 'Managment',
                 items: [
                     {
-                        label: 'Orders',
+                        label: 'Orders Managment',
                         icon: 'pi pi-fw pi-bookmark',
                         items: [
                             {
@@ -43,7 +43,7 @@ export class AppMenuComponent implements OnInit {
                         ],
                     },
                     {
-                        label: 'Rates',
+                        label: 'Rates Managment',
                         icon: 'pi pi-fw pi-bookmark',
                         items: [
                             {

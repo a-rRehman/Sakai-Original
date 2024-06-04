@@ -8,6 +8,7 @@ import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
         DropdownModule,
         ButtonModule,
         InputTextModule,
+        CheckboxModule,
     ],
     declarations: [MratesComponent],
 })
