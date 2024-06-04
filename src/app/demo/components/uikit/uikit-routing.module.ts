@@ -154,6 +154,14 @@ import { RouterModule } from '@angular/router';
                         (m) => m.MratesModule
                     ),
             },
+            {
+                path: 'srates',
+                data: { breadcrumb: 'Menu' },
+                loadChildren: () =>
+                    import('./srates/srates.module').then(
+                        (m) => m.SratesModule
+                    ),
+            },
 
             { path: '**', redirectTo: '/notfound' },
         ]),

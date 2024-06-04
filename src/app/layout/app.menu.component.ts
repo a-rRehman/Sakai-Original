@@ -51,6 +51,11 @@ export class AppMenuComponent implements OnInit {
                                 icon: 'pi pi-fw pi-bookmark',
                                 routerLink: ['/uikit/mrates'],
                             },
+                            {
+                                label: 'Service Rates',
+                                icon: 'pi pi-fw pi-bookmark',
+                                routerLink: ['/uikit/srates'],
+                            },
                         ],
                     },
                 ],
