@@ -143,7 +143,7 @@ import { RouterModule } from '@angular/router';
                 data: { breadcrumb: 'Menu' },
                 loadChildren: () =>
                     import('./tree-table/tree-table.module').then(
-                        (m) => m.TreeTableModule
+                        (m) => m.TreeTablemodule
                     ),
             },
 
