@@ -1,1 +1,202 @@
-<p>srates works!</p>
+<div class="card" style="padding: 0px">
+    <p-toast></p-toast>
+    <p-table
+        [value]="products"
+        [paginator]="true"
+        [rowsPerPageOptions]="[3, 5, 7]"
+        [rows]="3"
+        dataKey="id"
+        editMode="row"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['code', 'name', 'inventoryStatus']"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Inventory Status</th>
+                <th>Price</th>
+                <th>Selected</th>
+                <th></th>
+            </tr>
+            <tr style="background-color: #f9fafb">
+                <th>
+                    <p-columnFilter
+                        type="text"
+                        field="code"
+                        placeholder="Search by Code"
+                        ariaLabel="Filter Code"
+                    />
+                </th>
+                <th>
+                    <p-columnFilter
+                        type="text"
+                        field="name"
+                        placeholder="Search by Name"
+                        ariaLabel="Filter Name"
+                    />
+                </th>
+                <th>
+                    <p-columnFilter
+                        type="text"
+                        field="inventoryStatus"
+                        placeholder="Search by Inventory"
+                        ariaLabel="Filter Inventory"
+                    />
+                </th>
+                <th>
+                    <p-columnFilter
+                        type="text"
+                        field="price"
+                        placeholder="Search by Price"
+                        ariaLabel="Filter Price"
+                    />
+                </th>
+
+                <th>
+                    <!-- <p-columnFilter
+                        type="text"
+                        field="price"
+                        placeholder="Search by Price"
+                        ariaLabel="Filter Price"
+                    /> -->
+                </th>
+                <th>
+                    <!-- <p-columnFilter
+                        type="text"
+                        field="price"
+                        placeholder="Search by Price"
+                        ariaLabel="Filter Price"
+                    /> -->
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template
+            pTemplate="body"
+            let-product
+            let-editing="editing"
+            let-ri="rowIndex"
+        >
+            <tr [pEditableRow]="product">
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input
+                                pInputText
+                                type="text"
+                                [(ngModel)]="product.code"
+                            />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.code }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input
+                                pInputText
+                                type="text"
+                                [(ngModel)]="product.name"
+                                required
+                            />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.name }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-dropdown
+                                [options]="statuses"
+                                appendTo="body"
+                                [(ngModel)]="product.inventoryStatus"
+                                [style]="{ width: '100%' }"
+                            />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <p-tag
+                                [value]="product.inventoryStatus"
+                                [severity]="
+                                    getSeverity(product.inventoryStatus)
+                                "
+                            />
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input
+                                pInputText
+                                type="text"
+                                [(ngModel)]="product.price"
+                            />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.price | currency : "USD" }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-checkbox
+                                [(ngModel)]="product.selected"
+                                [binary]="true"
+                                inputId="binary"
+                            />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            <p-checkbox
+                                [(ngModel)]="product.selected"
+                                [binary]="true"
+                                inputId="binary"
+                                [disabled]="true"
+                            />
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <div
+                        class="flex align-items-center justify-content-center gap-2"
+                    >
+                        <button
+                            *ngIf="!editing"
+                            pButton
+                            pRipple
+                            type="button"
+                            pInitEditableRow
+                            icon="pi pi-pencil"
+                            (click)="onRowEditInit(product)"
+                            class="p-button-rounded p-button-text"
+                        ></button>
+                        <button
+                            *ngIf="editing"
+                            pButton
+                            pRipple
+                            type="button"
+                            pSaveEditableRow
+                            icon="pi pi-check"
+                            (click)="onRowEditSave(product)"
+                            class="p-button-rounded p-button-text p-button-success mr-2"
+                        ></button>
+                        <button
+                            *ngIf="editing"
+                            pButton
+                            pRipple
+                            type="button"
+                            pCancelEditableRow
+                            icon="pi pi-times"
+                            (click)="onRowEditCancel(product, ri)"
+                            class="p-button-rounded p-button-text p-button-danger"
+                        ></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
