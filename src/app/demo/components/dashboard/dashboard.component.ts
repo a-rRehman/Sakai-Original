@@ -5,6 +5,8 @@ import { ProductService } from '../../service/product.service';
 import { Subscription, debounceTime } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
+declare var tinymce: any;
+
 @Component({
     templateUrl: './dashboard.component.html',
 })
@@ -299,34 +301,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
         menubar: 'favs file edit view insert format tools table',
         content_style:
             'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+        image_title: true,
+        automatic_uploads: true,
+        file_picker_types: 'image',
+        file_picker_callback: function (cb: any, value: any, meta: any) {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
 
-        images_upload_handler: function (blobInfo, success, failure) {
-            const xhr = new XMLHttpRequest();
-            xhr.withCredentials = false;
-            xhr.open('POST', 'http://localhost:4200');
+            input.addEventListener('change', (e) => {
+                const file = (e.target as HTMLInputElement).files[0];
 
-            xhr.onload = function () {
-                if (xhr.status !== 200) {
-                    failure('HTTP Error: ' + xhr.status);
-                    return;
-                }
+                const reader = new FileReader();
+                reader.addEventListener('load', () => {
+                    const id = 'blobid' + new Date().getTime();
+                    const blobCache =
+                        tinymce.activeEditor.editorUpload.blobCache;
+                    const base64 = (reader.result as string).split(',')[1];
+                    const blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
 
-                const json = JSON.parse(xhr.responseText);
+                    /* call the callback and populate the Title field with the file name */
+                    cb(blobInfo.blobUri(), { title: file.name });
+                });
+                reader.readAsDataURL(file);
+            });
 
-                if (!json || typeof json.location !== 'string') {
-                    failure('Invalid JSON: ' + xhr.responseText);
-                    return;
-                }
-
-                success(json.location);
-            };
-
-            const formData = new FormData();
-            formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-            xhr.send(formData);
+            input.click();
         },
-
         setup: (editor) => {
             editor.on('init', () => {
                 editor.setContent(this.initialValue);
